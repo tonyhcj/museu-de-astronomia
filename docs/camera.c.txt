@@ -1,0 +1,4 @@
+Projecao perspectiva
+   configuraProjecao usa gluPerspective(60, aspecto, 0.5, 100): campo de visao
+   de 60 graus, proporcao da janela e planos near e far. Objetos distantes
+   ficam menores, como na visao humana.
