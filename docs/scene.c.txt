@@ -1,8 +1,7 @@
 Ambiente do museu
 
    desenhaAmbiente monta o piso e tres paredes com a funcao superficie, que
-   gera planos em grade de quadrados. A luz GL_LIGHT0 fica no teto, e a
-   funcao material define o brilho de cada superficie.
+   gera planos em grade de quadrados. 
 
 Objetos principais
   
