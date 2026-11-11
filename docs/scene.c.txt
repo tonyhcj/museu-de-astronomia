@@ -1,0 +1,17 @@
+Ambiente do museu
+
+   desenhaAmbiente monta o piso e tres paredes com a funcao superficie, que
+   gera planos em grade de quadrados. A luz GL_LIGHT0 fica no teto, e a
+   funcao material define o brilho de cada superficie.
+
+Objetos principais
+  
+   As exposicoes sao o sistema solar (Sol e Terra), Saturno com anel e o
+   telescopio, todas chamadas por desenhaObjetosDoMuseu. Os pedestais sao
+   cubos escalados.
+
+Transformacoes
+  
+   glTranslatef posiciona cada peca, glRotatef inclina Saturno e aponta o
+   telescopio, e glScalef achata o anel e forma os pedestais. Cada peca fica
+   isolada por glPushMatrix e glPopMatrix.
