@@ -27,7 +27,26 @@ void aplicaCamera()
               camX + dx, camY + dy, camZ + dz,
               0.0f, 1.0f, 0.0f);
 }
+void movimentaCamera(float frente, float lado)
+{
+    float fx = cosf(yaw * DEG2RAD), fz = sinf(yaw * DEG2RAD);
+    camX += fx * frente - fz * lado;
+    camZ += fz * frente + fx * lado;
 
+
+    if (camX < -11.0f) camX = -11.0f;
+    if (camX >  11.0f) camX =  11.0f;
+    if (camZ <  -7.0f) camZ =  -7.0f;
+    if (camZ >  11.0f) camZ =  11.0f;
+}
+
+void giraCamera(float dyaw, float dpitch)
+{
+    yaw += dyaw;
+    pitch += dpitch;
+    if (pitch >  80.0f) pitch =  80.0f;
+    if (pitch < -80.0f) pitch = -80.0f;
+}
 void configuraProjecao(int largura, int altura)
 {
     float aspecto = (altura == 0) ? 1.0f : (float)largura / (float)altura;
