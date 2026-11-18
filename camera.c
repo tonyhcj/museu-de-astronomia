@@ -49,16 +49,25 @@ void giraCamera(float dyaw, float dpitch)
     if (pitch >  80.0f) pitch =  80.0f;
     if (pitch < -80.0f) pitch = -80.0f;
 }
-void configuraProjecao(int largura, int altura, int projecao)
+
+void alternaProjecao()
+{
+    ortografica = !ortografica;
+}
+
+
+void configuraProjecao(int largura, int altura)
 {
     float aspecto = (altura == 0) ? 1.0f : (float)largura / (float)altura;
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    if (projecao == 0) {
-        gluPerspective(60.0, aspecto, 0.5, 100.0);
-    } else {
-        glOrtho(-0.01*largura, 0.01*largura, -0.01*altura, 0.01*altura, 0.5, 100.0);
+    if (ortografica)
+    {
+        float h = 8.0f;   /* metade da altura visível */
+        glOrtho(-h * aspecto, h * aspecto, -h, h, 0.5, 100.0);
     }
+    else
+        gluPerspective(60.0, aspecto, 0.5, 100.0);
     glMatrixMode(GL_MODELVIEW);
 }
