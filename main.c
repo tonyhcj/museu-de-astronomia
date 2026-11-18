@@ -1,9 +1,33 @@
+#include <stdlib.h>
 #include <GL/glut.h>
 #include "camera.h"
 #include "scene.h"
 
 int largura = 1000;
 int altura = 700;
+
+void teclado(unsigned char k, int x, int y)
+{
+    switch (k) {
+        case 'w': movimentaCamera( 0.3f, 0); break;
+        case 's': movimentaCamera(-0.3f, 0); break;
+        case 'a': movimentaCamera(0, -0.3f); break;
+        case 'd': movimentaCamera(0,  0.3f); break;
+        case 27:  exit(0);
+    }
+    glutPostRedisplay();
+}
+
+void especial(int k, int x, int y)
+{
+    switch (k) {
+        case GLUT_KEY_LEFT:  giraCamera(-3, 0); break;
+        case GLUT_KEY_RIGHT: giraCamera( 3, 0); break;
+        case GLUT_KEY_UP:    giraCamera(0,  2); break;
+        case GLUT_KEY_DOWN:  giraCamera(0, -2); break;
+    }
+    glutPostRedisplay();
+}
 
 void desenho()
 {
@@ -43,6 +67,8 @@ int main(int argc, char** argv)
 
     glutDisplayFunc(desenho);
     glutReshapeFunc(reshape);
+    glutKeyboardFunc(teclado);
+    glutSpecialFunc(especial);
 
     glutMainLoop();
     return 0;
