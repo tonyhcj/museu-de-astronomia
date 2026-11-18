@@ -5,6 +5,7 @@
 
 int largura = 1000;
 int altura = 700;
+int projecao = 0; // 0 (perspectiva) ou 1 (ortografica)
 
 void teclado(unsigned char k, int x, int y)
 {
@@ -13,6 +14,7 @@ void teclado(unsigned char k, int x, int y)
         case 's': movimentaCamera(-0.3f, 0); break;
         case 'a': movimentaCamera(0, -0.3f); break;
         case 'd': movimentaCamera(0,  0.3f); break;
+        case 'p': projecao = !projecao; break;
         case 27:  exit(0);
     }
     glutPostRedisplay();
@@ -32,7 +34,7 @@ void especial(int k, int x, int y)
 void desenho()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    configuraProjecao(largura, altura);
+    configuraProjecao(largura, altura, projecao);
     aplicaCamera();
     desenhaCena();
     glutSwapBuffers();

@@ -40,6 +40,7 @@ Os pedestais são cubos unitários escalados com `glScalef`.
 | `A` / `D` | Andar para a esquerda / para a direita |
 | `←` / `→` | Girar a câmera horizontalmente |
 | `↑` / `↓` | Olhar para cima / para baixo |
+| `P` | Alterar o tipo de projeção |
 | `ESC` | Sair do programa |
 
 ## Pré-requisitos e Compilação (Linux)
