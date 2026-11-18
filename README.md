@@ -13,7 +13,7 @@ O código-fonte está dividido em módulos para facilitar a manutenção e a org
 ## Objetos Modelados na Cena
 
 * **Ambiente**: Piso e três paredes (fundo, esquerda e direita) formando a galeria. As superfícies são geradas pela função `superficie`, que subdivide cada plano em uma grade de quadrados para melhorar a iluminação.
-* **Sistema Solar**: Sol representado por uma esfera e Terra posicionada a partir dele por transformações aninhadas, sobre um pedestal.
+* **Sistema Solar**: Sol com emissão de luz (`GL_EMISSION`) e Terra posicionada a partir dele por transformações aninhadas, sobre um pedestal.
 * **Saturno**: Esfera inclinada com anel feito de `glutSolidTorus` achatado, sobre um pedestal.
 * **Telescópio**: Tripé de três pernas (rotacionadas em 120°) e tubo feito com `gluCylinder`, apontado para o alto.
 
