@@ -27,8 +27,7 @@ void atualizaAnimacao()
 static void material(float r, float g, float b, float spec, float brilho)
 {
     GLfloat esp[] = { spec, spec, spec, 1.0f };
-    float c = 0.299f * r + 0.587f * g + 0.114f * b;
-    glColor3f(c, c, c);
+    glColor3f(r, g, b);
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, esp);
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, brilho);
 }
