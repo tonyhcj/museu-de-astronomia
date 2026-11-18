@@ -6,6 +6,6 @@ void aplicaCamera(void);
 void configuraProjecao(int largura, int altura, int projecao);
 void movimentaCamera(float frente, float lado);
 void giraCamera(float dyaw, float dpitch);
-
+void alternaProjecao(void);
 
 #endif
