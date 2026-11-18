@@ -77,7 +77,7 @@ void desenhaAmbiente()
 
 static void exposicaoSistemaSolar()
 {
-    GLfloat emissaoSol[] = { 0.85f, 0.85f, 0.85f, 1.0f };
+    GLfloat emissaoSol[] = { 1.0f, 0.8f, 0.1f, 1.0f };
     GLfloat semEmissao[] = { 0.0f, 0.0f, 0.0f, 1.0f };
 
     pedestal(0.0f, -4.0f, 1.2f, 2.0f);
