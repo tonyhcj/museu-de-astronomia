@@ -6,6 +6,8 @@
 
 static float camX, camY, camZ;
 static float yaw, pitch;
+static int ortografica = 0;
+
 
 void inicializaCamera()
 {
