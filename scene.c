@@ -3,6 +3,27 @@
 
 static GLUquadric* quad;
 
+static int   luzLigada   = 1;
+static int   animando    = 1;
+static float anguloOrbita = 0.0f;
+
+void alternaLuz()
+{
+    luzLigada = !luzLigada;
+}
+
+void alternaAnimacao()
+{
+    animando = !animando;
+}
+
+void atualizaAnimacao()
+{
+    if (!animando) return;
+    anguloOrbita += 1.0f;
+    if (anguloOrbita >= 360.0f) anguloOrbita -= 360.0f;
+}
+
 static void material(float r, float g, float b, float spec, float brilho)
 {
     GLfloat esp[] = { spec, spec, spec, 1.0f };
@@ -73,7 +94,7 @@ static void exposicaoSistemaSolar()
         glPopMatrix();
 
         glPushMatrix();
-            glRotatef(40.0f, 0, 1, 0);
+            glRotatef(anguloOrbita, 0, 1, 0);
             glTranslatef(2.2f, 0.0f, 0.0f);
             material(0.1f, 0.4f, 0.9f, 0.9f, 80.0f);
             glutSolidSphere(0.3, 24, 12);
@@ -143,7 +164,8 @@ void configuraIluminacao()
     GLfloat posicao[]   = { 0.0f, 7.0f, 4.0f, 1.0f };
 
     glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
+    if (luzLigada) glEnable(GL_LIGHT0);
+    else           glDisable(GL_LIGHT0);
     glLightfv(GL_LIGHT0, GL_AMBIENT,  ambiente);
     glLightfv(GL_LIGHT0, GL_DIFFUSE,  difusa);
     glLightfv(GL_LIGHT0, GL_SPECULAR, especular);
